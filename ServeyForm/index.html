@@ -1,67 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Include your CSS file here -->
+    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Customer Survey Form</title>
 </head>
 <body>
-  <h1>Customer Survey Form</h1>
+    <h1>Customer Survey Form</h1>
     <div class="container">
-        
         <form id="surveyForm">
             <div class="form-group side-by-side">
                 <div class="input-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" class="textbox" required>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" class="textbox" required>
                 </div>
                 <div class="input-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" class="textbox" required>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" class="textbox" required>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="firstTime">Is this your first time using our product and services?</label>
-                <div class="radio-group">
-                    <input type="radio" id="firstTimeYes" name="firstTime" value="yes" required>
-                    <label for="firstTimeYes">Yes</label>
-                    <input type="radio" id="firstTimeNo" name="firstTime" value="no" required>
-                    <label for="firstTimeNo">No</label>
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" class="textbox" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <select id="country" name="country" class="textbox" required>
+                    <option value="">Select Country</option>
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="au">Australia</option>
+                    <option value="fr">France</option>
+                    <option value="de">Germany</option>
+                    <option value="jp">Japan</option>
+                    <!-- Add more country options here -->
+                </select>
+            </div>
+            
+
+            <div class="form-group side-by-side"> <!-- Added class for side-by-side styling -->
+                <label>Gender:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+                    <input type="checkbox" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                    <input type="checkbox" id="other" name="gender" value="other" required>
+                    <label for="other">Other</label>
                 </div>
             </div>
+            
 
             <div class="form-group">
-                <label for="suggestToFriend">Would you suggest our product to your friends and colleague?</label>
-                <div class="radio-group">
-                    <input type="radio" id="suggestToFriendYes" name="suggestToFriend" value="yes" required>
-                    <label for="suggestToFriendYes">Yes</label>
-                    <input type="radio" id="suggestToFriendNo" name="suggestToFriend" value="no" required>
-                    <label for="suggestToFriendNo">No</label>
-                </div>
+                <label for="profession">Profession:</label>
+                <input type="text" id="profession" name="profession" class="textbox" required>
             </div>
 
             <div class="form-group">
-              <label for="suggestToFriend">How satisfied are you with our company overall?</label>
-              <div class="radio-group">
-                  <input type="radio" id="suggestToFriendYes" name="suggestToFriend" value="yes" required>
-                  <label for="suggestToFriendYes">Satisfied</label>
-                  <input type="radio" id="suggestToFriendNo" name="suggestToFriend" value="no" required>
-                  <label for="suggestToFriendNo">Undecided</label>
-                  <input type="radio" id="suggestToFriendNo" name="suggestToFriend" value="no" required>
-                  <label for="suggestToFriendNo">Unsatisfied</label>
-              </div>
-          </div>
-
-
-            <div class="form-group">
-                <label for="suggestions">Do you have any suggestions to improve our product and services?</label>
-                <textarea id="suggestions" name="suggestions" rows="5" style="width: 97%;"class="textarea-small"></textarea>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="textbox" required>
             </div>
 
-            <button type="submit" class="blue-button">Submit</button>
+            <div class="form-group">
+                <label for="mobile">Mobile Number:</label>
+                <input type="tel" id="mobile" name="mobile" class="textbox" required>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="blue-button">Submit</button>
+                <button type="reset" class="blue-button" id="reset-button">Reset</button>
+            </div>
         </form>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Survey Results</h2>
+            <p>Your submission has been received.</p>
+            <button class="blue-button popup-close" onclick="closePopup()">Close</button>
+        </div>
     </div>
     <div class="copyright">
         <p>&copy; 2018 Customer Survey Form. All Rights Reserved | Design by <span class="w3">W3Layouts</span></p>
