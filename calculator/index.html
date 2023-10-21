@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        
+        <div class="ac-button">
+            <button class="green" onclick="clearDisplay()">AC</button>
+        </div>
+        
+        <button class="white" onclick="appendToDisplay('9')">9</button>
+        <button class="white" onclick="appendToDisplay('8')">8</button>
+        <button class="white" onclick="appendToDisplay('7')">7</button>
+        <button class="grey" onclick="appendToDisplay('+')">+</button>
+        <button class="white" onclick="appendToDisplay('4')">4</button>
+        <button class="white" onclick="appendToDisplay('5')">5</button>
+        <button class="white" onclick="appendToDisplay('6')">6</button>
+        <button class="grey" onclick="appendToDisplay('-')">-</button>
+        <button class="white" onclick="appendToDisplay('1')">1</button>
+        <button class="white" onclick="appendToDisplay('2')">2</button>
+        <button class="white" onclick="appendToDisplay('3')">3</button>
+        <button class="grey" onclick="appendToDisplay('/')">/</button>
+        <button class="white" onclick="appendToDisplay('.')">.</button>
+        <button class="zero white" onclick="appendToDisplay('0')">0</button>
+        <button class="white" onclick="calculateResult()">=</button>
+        <button class="grey" onclick="appendToDisplay('*')">*</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
