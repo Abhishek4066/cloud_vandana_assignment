@@ -5,21 +5,33 @@ document.addEventListener("DOMContentLoaded", function() {
   const genderCheckboxes = document.querySelectorAll('input[name="gender"]');
 
   surveyForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const formData = new FormData(surveyForm);
-    let popupContent = "<h2>Survey Results</h2>";
+    const checkedGenderCheckboxes = Array.from(genderCheckboxes).filter(checkbox => checkbox.checked);
 
-    for (const [key, value] of formData.entries()) {
-      popupContent += `<div class="popup-content"><strong>${key}:</strong> ${value}</div>`;
+    if (checkedGenderCheckboxes.length === 0) {
+      e.preventDefault();
+      alert("Please select your gender.");
+    } else {
+      e.preventDefault(); 
+      const formData = new FormData(surveyForm);
+      let popupContent = "<h2>Survey Results</h2>";
+
+     
+      for (const [key, value] of formData.entries()) {
+        popupContent += `<div><strong>${key}:</strong> ${value}</div>`;
+      }
+
+      
+      popupContent += '<button class="blue-button popup-close" onclick="closePopup()">Close</button>';
+      
+      
+      popup.innerHTML = popupContent;
+      popup.style.display = "block";
+      popup.classList.add("popup-content"); 
     }
-
-    popupContent += '<button class="blue-button popup-close" onclick="closePopup()">Close</button>';
-    popup.innerHTML = popupContent;
-    popup.style.display = "block";
   });
 
   resetButton.addEventListener("click", function() {
-    popup.style.display = "none";
+    popup.style.display = "none"; 
   });
 
   genderCheckboxes.forEach(checkbox => {
@@ -35,32 +47,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-document.addEventListener("DOMContentLoaded", function() {
-  const surveyForm = document.getElementById("surveyForm");
-  const popup = document.getElementById("popup");
-  const resetButton = document.getElementById("reset-button");
-
-  surveyForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const formData = new FormData(surveyForm);
-    let popupContent = "<h2>Survey Results</h2>";
-
-    for (const [key, value] of formData.entries()) {
-      popupContent += `<div class="popup-content"><strong>${key}:</strong> ${value}</div>`;
-    }
-
-    popupContent += '<button class="blue-button popup-close" onclick="closePopup()">Close</button>';
-    popup.innerHTML = popupContent;
-    popup.style.display = "block";
-  });
-
-  resetButton.addEventListener("click", function() {
-    popup.style.display = "none";
-  });
-});
 
 function closePopup() {
   document.getElementById("popup").style.display = "none";
